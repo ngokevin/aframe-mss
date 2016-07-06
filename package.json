@@ -4,6 +4,7 @@
   "description": "Declare A-Frame mixins and components in stylesheet form.",
   "main": "index.js",
   "scripts": {
+    "examples": "budo examples/main.js:build.js --dir examples --port 8100 --live --open",
     "parser": "jison parser/parser.y parser/lexer.l -o parser/main.js",
     "test": "npm run parser && tape tests/*.test.js",
     "test-print": "npm run parser && node tests/print.js"
@@ -28,6 +29,8 @@
   },
   "homepage": "https://github.com/ngokevin/aframe-mixinsheet#readme",
   "devDependencies": {
+    "aframe": "^0.2.0",
+    "budo": "^8.3.0",
     "jison": "^0.4.17",
     "tape": "^4.6.0"
   }

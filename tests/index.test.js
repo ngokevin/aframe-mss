@@ -1,6 +1,6 @@
 var test = require('tape');
 
-var mss = require('../index');
+var mss = require('../parser/main');
 
 test('mixin names', function (t) {
   var data = mss.parse('box {} \n sphere {}');

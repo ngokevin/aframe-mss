@@ -1,7 +1,7 @@
 var fs = require('fs');
 var test = require('tape');
 
-var mss = require('../index');
+var mss = require('../parser/main');
 
 var contents = fs.readFileSync('tests/files/integration.mss', 'utf-8');
 

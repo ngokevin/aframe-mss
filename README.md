@@ -1,12 +1,12 @@
 # aframe-mss
 
-> **Work in progress**
-
 Mixin Style Sheets: CSS for A-Frame.
 
 <img alt="logo" src="mss.png" width="320">
 
-Declaratively declare mixins in a stylesheet form:
+## Usage
+
+Declaratively declare mixins and components in a stylesheet form:
 
 ```css
 /* example.mss */
