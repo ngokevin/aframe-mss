@@ -28,6 +28,19 @@ sphere {
   }
 }
 
+sky {
+  geometry {
+    primitive: sphere;
+    radius: 5000;
+    segmentsHeight: 20;
+    segmentsWidth: 64;
+  }
+  material {
+    shader: flat;
+  }
+  scale: -1 1 1;
+}
+
 left {
   position: -1 0 0;
 }

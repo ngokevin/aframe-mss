@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/ngokevin/aframe-mixinsheet#readme",
   "devDependencies": {
-    "aframe": "^0.2.0",
+    "aframe": "ngokevin/aframe#mss",
     "budo": "^8.3.0",
     "jison": "^0.4.17",
     "tape": "^4.6.0"

@@ -8,6 +8,13 @@ var xhrLoader = new THREE.XHRLoader();
 
 var AStyle = document.registerElement('a-style', {
   prototype: Object.create(ANode.prototype, {
+    createdCallback: {
+      value: function () {
+        // Will make <a-asset-item> wait for load.
+        this.isAssetItem = true;
+      }
+    },
+
     attachedCallback: {
       value: function () {
         var self = this;
@@ -15,7 +22,6 @@ var AStyle = document.registerElement('a-style', {
 
         xhrLoader.load(src, function (textResponse) {
           self.injectMixins(textResponse);
-          ANode.prototype.load.call(self);
         });
       }
     },
@@ -44,6 +50,8 @@ var AStyle = document.registerElement('a-style', {
 
           self.appendChild(mixinEl);
         });
+
+        ANode.prototype.load.call(self);
       }
     }
   })
