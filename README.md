@@ -14,6 +14,7 @@ wideBox {
     primitive: box;
     width: 5;
   }
+  position: 5 5 2;
 }
 
 red {
