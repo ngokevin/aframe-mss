@@ -95,13 +95,13 @@ component_list
 ;
 
 component
-  : single_property_component -> $1
+  : property -> $1
   | ';' -> null
   | wempty -> null
 ;
 
-single_property_component
-  : component_name wempty ':' wempty expr wempty -> [$1, $5]
+property
+  : property_name wempty ':' wempty expr wempty -> [$1, $5]
   | /* empty */ -> null
 ;
 
