@@ -8,7 +8,6 @@ Declaratively declare mixins in a stylesheet form:
 
 ```css
 /* example.mss */
-
 wideBox {
   geometry {
     primitive: box;
