@@ -4,7 +4,11 @@
   "description": "Declare A-Frame mixins and components in stylesheet form.",
   "main": "index.js",
   "scripts": {
+    "dist": "browserify index.js -o dist/aframe-mss.js && browserify index.js | uglifyjs > dist/aframe-mss.min.js",
     "examples": "budo examples/main.js:build.js --dir examples --port 8100 --live --open",
+    "postpublish": "npm run dist",
+    "preghpages": "npm run parser && shx rm -rf gh-pages && shx mkdir gh-pages && shx cp -r examples/* gh-pages",
+    "ghpages": "npm run preghpages && ghpages -p gh-pages",
     "parser": "jison parser/parser.y parser/lexer.l -o parser/main.js",
     "test": "npm run parser && tape tests/*.test.js",
     "test-print": "npm run parser && node tests/print.js"
@@ -30,7 +34,9 @@
   "homepage": "https://github.com/ngokevin/aframe-mixinsheet#readme",
   "devDependencies": {
     "aframe": "ngokevin/aframe#mss",
+    "browserify": "^13.0.1",
     "budo": "^8.3.0",
+    "ghpages": "0.0.8",
     "jison": "^0.4.17",
     "tape": "^4.6.0"
   }
