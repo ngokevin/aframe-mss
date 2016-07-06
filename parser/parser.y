@@ -24,16 +24,20 @@ string_or_uri
 general_list
   : general_item
     %{
-    $$ = [];
-    if ($1 !== null) {
-     $$.push($1);
-      }
-   %}
+      $$ = {};
+      if ($1 === null) { return; }
+      var mixinName = $1.id;
+      var components = $1.components;
+      $$[mixinName] = components;
+    %}
   | general_list general_item
-   %{
-    $$ = $1;
-    $$.push($2);
-   %}
+    %{
+      $$ = $1;
+      if ($2 === null) { return; }
+      var mixinName = $2.id;
+      var components = $2.components;
+      $$[mixinName] = components;
+    %}
   | -> null
 ;
 

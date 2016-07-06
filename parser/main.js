@@ -98,17 +98,21 @@ this.$ = $$[$0-1];
 break;
 case 4:
 
-    this.$ = [];
-    if ($$[$0] !== null) {
-     this.$.push($$[$0]);
-      }
-   
+      this.$ = {};
+      if ($$[$0] === null) { return; }
+      var mixinName = $$[$0].id;
+      var components = $$[$0].components;
+      this.$[mixinName] = components;
+    
 break;
 case 5:
 
-    this.$ = $$[$0-1];
-    this.$.push($$[$0]);
-   
+      this.$ = $$[$0-1];
+      if ($$[$0] === null) { return; }
+      var mixinName = $$[$0].id;
+      var components = $$[$0].components;
+      this.$[mixinName] = components;
+    
 break;
 case 6: case 8: case 22: case 48: case 49: case 51: case 52: case 53:
 this.$ = null;

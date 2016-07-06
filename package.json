@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "parser": "jison parser/parser.y parser/lexer.l -o parser/main.js",
-    "test": "npm run parser && node test.js",
-    "test-css": "npm run parser && node parser/main.js parser/test-css.mss"
+    "test": "npm run parser && tape tests/*.test.js",
+    "test-print": "npm run parser && node tests/print.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/ngokevin/aframe-mixinsheet#readme",
   "devDependencies": {
-    "jison": "^0.4.17"
+    "jison": "^0.4.17",
+    "tape": "^4.6.0"
   }
 }
