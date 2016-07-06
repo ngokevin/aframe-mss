@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "parser": "jison parser/parser.y parser/lexer.l -o parser/main.js",
-    "test": "npm run parser && node parser/main.js parser/test2"
+    "test": "npm run parser && node parser/main.js parser/test-aframe.mss",
+    "test-css": "npm run parser && node parser/main.js parser/test-css.mss"
   },
   "repository": {
     "type": "git",
