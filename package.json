@@ -1,0 +1,32 @@
+{
+  "name": "aframe-mixinsheet",
+  "version": "1.0.0",
+  "description": "Declare A-Frame mixins and components in stylesheet form.",
+  "main": "index.js",
+  "scripts": {
+    "parser": "jison parser/parser.y parser/lexer.l -o parser/main.js",
+    "test": "npm run parser && node parser/main.js parser/test2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngokevin/aframe-mixinsheet.git"
+  },
+  "keywords": [
+    "aframe",
+    "mixin",
+    "stylesheet",
+    "css",
+    "mixinsheet",
+    "vr",
+    "webvr"
+  ],
+  "author": "Kevin Ngo <me@ngokevin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngokevin/aframe-mixinsheet/issues"
+  },
+  "homepage": "https://github.com/ngokevin/aframe-mixinsheet#readme",
+  "devDependencies": {
+    "jison": "^0.4.17"
+  }
+}
