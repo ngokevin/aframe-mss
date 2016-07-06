@@ -57,52 +57,79 @@ ruleset
 ;
 
 mixin_name
-  : IDENT whitespace -> $1 + " "
+  : IDENT whitespace -> $1
 ;
 
 component_name
-  : IDENT whitespace -> $1 + " "
+  : IDENT whitespace -> $1
 ;
 
 component_list
-  : component
-   %{
-    $$ = {};
-    if ($1 !== null) {
-      if (!$$[$1[0]]) {
-        $$[$1[0]] = $1[1];
-      } else if (Object.prototype.toString.call($$[$1[0]]) === '[object Array]') {
-        $$[$1[0]].push($1[1]);
-      } else {
-        $$[$1[0]] = [$$[$1[0]], $1[1]];
-      }
-    }
-   %}
-  | component_list component
-   %{
-    $$ = $1;
-    if ($2 !== null) {
-      if (!$$[$2[0]]){
-        $$[$2[0]] = $2[1];
-      } else if (Object.prototype.toString.call($$[$2[0]]) === '[object Array]') {
-        $$[$2[0]].push($2[1]);
-      } else {
-        $$[$2[0]] = [$$[$2[0]], $2[1]];
-      }
-    }
-   %}
-  | component_name wempty '{' wempty component_list '}' wempty -> {component: $1, properties: $5}
+  : property
+    %{
+     // Terminal for single-prop component. Start data structure.
+     var components = {};
+     var property = $1;
+     if (property === null) { $$ = components; return; }
+     var propertyName = property[0];
+     var propertyValue = property[1];
+
+     if (!components[propertyName]) {
+       components[propertyName] = propertyValue;
+     } else if (components[propertyName].constructor === Array) {
+       components[propertyName].push(propertyValue);
+     } else {
+       components[propertyName] = [components[propertyName], propertyValue];
+     }
+     $$ = components;
+    %}
+  | component_list property
+    %{
+     // Non-terminal for single-prop component. Update data structure.
+     var components = $1;
+     var property = $2;
+     if (property === null) { $$ = components; return; }
+     var propertyName = property[0];
+     var propertyValue = property[1];
+
+     if (!components[propertyName]) {
+       components[propertyName] = propertyValue;
+     } else if (components[propertyName].constructor === Array) {
+       components[propertyName].push(propertyValue);
+     } else {
+       components[propertyName] = [components[propertyName], propertyValue];
+     }
+     $$ = components;
+    %}
+  | multi_prop_component
+    %{
+     // Terminal for multi-prop component. Create data structure.
+     var components = {};
+     var componentName = $1.component;
+     var properties = $1.properties;
+     if (properties === null) { $$ = components; return; }
+     components[componentName] = properties;
+     $$ = components;
+    %}
+  | component_list multi_prop_component
+    %{
+     // Non-terminal for multi-prop component. Create data structure.
+     var components = $1;
+     var componentName = $2.component;
+     var properties = $2.properties;
+     if (properties === null) { $$ = components; return; }
+     components[componentName] = properties;
+     $$ = components;
+    %}
 ;
 
-component
-  : property -> $1
-  | ';' -> null
-  | wempty -> null
+multi_prop_component
+  : component_name wempty '{' wempty component_list '}' wempty -> {component: $1, properties: $5}
 ;
 
 property
-  : property_name wempty ':' wempty expr wempty -> [$1, $5]
-  | /* empty */ -> null
+  : property_name wempty ':' wempty expr wempty ';' -> [$1, $5]
+  | wempty -> null
 ;
 
 expr
