@@ -4,6 +4,8 @@
 
 Mixin Style Sheets: CSS for A-Frame.
 
+![logo](mss.png)
+
 Declaratively declare mixins in a stylesheet form:
 
 ```css
