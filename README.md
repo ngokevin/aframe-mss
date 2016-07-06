@@ -1,5 +1,7 @@
 # aframe-mss
 
+> Depends on upcoming A-Frame 0.3.0.
+
 Mixin Style Sheets: CSS for [A-Frame][aframe].
 
 <img alt="logo" src="mss.png" width="320">
@@ -58,7 +60,8 @@ left { position: -1 0 0; }
 right { position: 1 0 0; }
 ```
 
-Then import using `<a-style>` and use via mixins:
+Then import using `<a-style>` and use via mixins. `<a-style>` will parse the
+MSS and inject `<a-mixin>`s.
 
 ```html
 <a-scene>

@@ -7,7 +7,7 @@
     "dist": "browserify index.js -o dist/aframe-mss.js && browserify index.js | uglifyjs > dist/aframe-mss.min.js",
     "examples": "budo examples/main.js:build.js --dir examples --port 8100 --live --open",
     "postpublish": "npm run dist",
-    "preghpages": "npm run parser && shx rm -rf gh-pages && shx mkdir gh-pages && shx cp -r examples/* gh-pages",
+    "preghpages": "npm run parser && browserify examples/main.js -o examples/build.js && shx rm -rf gh-pages && shx mkdir gh-pages && shx cp -r examples/* gh-pages",
     "ghpages": "npm run preghpages && ghpages -p gh-pages",
     "parser": "jison parser/parser.y parser/lexer.l -o parser/main.js",
     "test": "npm run parser && tape tests/*.test.js",
