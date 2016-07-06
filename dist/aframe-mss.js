@@ -509,7 +509,7 @@ case 1:
         this.$['mixins'] = $$[$0];
       }
       return this.$;
-
+    
 break;
 case 2: case 3: case 11: case 14: case 15: case 29: case 30: case 31: case 32: case 34: case 35: case 36: case 37: case 39: case 40: case 41: case 43:
 this.$ = $$[$0-1];
@@ -521,7 +521,7 @@ case 4:
       var mixinName = $$[$0].id;
       var components = $$[$0].components;
       this.$[mixinName] = components;
-
+    
 break;
 case 5:
 
@@ -530,7 +530,7 @@ case 5:
       var mixinName = $$[$0].id;
       var components = $$[$0].components;
       this.$[mixinName] = components;
-
+    
 break;
 case 6: case 8: case 22: case 48: case 49: case 51: case 52: case 53:
 this.$ = null;
@@ -561,7 +561,7 @@ case 16:
        components[propertyName] = [components[propertyName], propertyValue];
      }
      this.$ = components;
-
+    
 break;
 case 17:
 
@@ -580,7 +580,7 @@ case 17:
        components[propertyName] = [components[propertyName], propertyValue];
      }
      this.$ = components;
-
+    
 break;
 case 18:
 
@@ -591,7 +591,7 @@ case 18:
      if (properties === null) { this.$ = components; return; }
      components[componentName] = properties;
      this.$ = components;
-
+    
 break;
 case 19:
 
@@ -602,7 +602,7 @@ case 19:
      if (properties === null) { this.$ = components; return; }
      components[componentName] = properties;
      this.$ = components;
-
+    
 break;
 case 20:
 this.$ = {component: $$[$0-6], properties: $$[$0-2]};
@@ -1194,6 +1194,5 @@ if (typeof module !== 'undefined' && require.main === module) {
   exports.main(process.argv.slice(1));
 }
 }
-
 }).call(this,require('_process'))
 },{"_process":4,"fs":2,"path":3}]},{},[1]);
