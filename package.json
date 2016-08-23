@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/ngokevin/aframe-mss#readme",
   "devDependencies": {
-    "aframe": "ngokevin/aframe#mss",
+    "aframe": "^0.3.0",
     "browserify": "^13.0.1",
     "budo": "^8.3.0",
     "ghpages": "0.0.8",

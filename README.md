@@ -1,12 +1,15 @@
 # aframe-mss
 
-> Depends on upcoming A-Frame 0.3.0.
+[aframe]: https://aframe.io/
 
 Mixin Style Sheets: CSS for [A-Frame][aframe].
 
 <img alt="logo" src="mss.png" width="320">
 
 ## Usage
+
+[components]: https://aframe.io/docs/0.3.0/core/component.html
+[mixins]: https://aframe.io/docs/0.3.0/core/mixins.html
 
 Declaratively declare [mixins][mixins] and [components][components] in a stylesheet form:
 
@@ -64,17 +67,23 @@ Then import using `<a-style>` and use via mixins. `<a-style>` will parse the
 MSS and inject `<a-mixin>`s.
 
 ```html
-<a-scene>
-  <a-assets>
-    <a-style src="basic.mss"></a-style>
-  </a-assets>
+<html>
+  <head>
+    <title>My A-Frame Scene</title>
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-mss/master/dist/aframe-mss.min.js"></script>
+  </head>
 
-  <a-entity mixin="left red box"></a-entity>
-  <a-entity mixin="right blue sphere"></a-entity>
-  <a-entity mixin="white sky"></a-entity>
-</a-scene>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-style src="basic.mss"></a-style>
+      </a-assets>
+
+      <a-entity mixin="left red box"></a-entity>
+      <a-entity mixin="right blue sphere"></a-entity>
+      <a-entity mixin="white sky"></a-entity>
+    </a-scene>
+  </body>
+</html>
 ```
-
-[aframe]: https://aframe.io/
-[components]: https://aframe.io/docs/0.2.0/core/component.html
-[mixins]: https://aframe.io/docs/0.2.0/core/mixins.html
